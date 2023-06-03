@@ -14,16 +14,6 @@
     <div class="container pt-4">
         <div class="row justify-content-center post_data">
             <input type="hidden" class="post_id" id="post_id" name="post_id" value="{{ $post->id }}">
-            {{-- <div class="col-md-4">
-                @if($post->image)
-                <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" width="300">
-                @else
-                <img src="https://source.unsplash.com/300x300?{{ $post->promo->jenis }}" alt="{{ $post->promo->jenis }}">
-                @endif
-                <p><a href="/offer?post={{ $post->key_one }}"><span class="badge rounded-pill text-bg-secondary">{{ $post->key_one }}</span></a> <span class="badge rounded-pill text-bg-secondary">{{ $post->key_two }}</span> </p>
-                <p><span class="badge rounded-pill text-bg-secondary">{{ $post->key_three }}</span> <span class="badge rounded-pill text-bg-secondary">{{ $post->key_four }}</span> </p>
-                <p><span class="badge rounded-pill text-bg-secondary">{{ $post->key_five }}</span></p>
-            </div> --}}
             <div class="col-md-4 col-sm-6 col-lg-3">
                 @if($post->image)
                     <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="img-fluid">
@@ -131,16 +121,6 @@
         }
     }
 
-    // title.addEventListener('change', function(){
-    //     fetch('/dashboard/posts/checkSlug?title=' + title.value)
-    //     .then(response => response.json())
-    //     .then(data => slug.value = data.slug)
-    // });
-
-    // document.addEventListener('trix-file-accept', function(e){
-    //     e.preventDefault()
-    // });
-
     function addToBookmark(){
         const post_id = document.querySelector('.post_id');
     //   const imgPreview = document.querySelector('.img-preview');
@@ -157,37 +137,6 @@
             }
         });
     };
-    // $(document).ready(function(){
-    //     $('.addToBookmark').click(function(e){
-    //         e.preventDefault();
-    //         var post_id = $(this).closset('.post_data').find('.post_id').val();
-    //         alert(post_id);
-    //         $.ajax({
-    //             method: "POST",
-    //             url: "/add-to-bookmark",
-    //             data: {
-    //                 'post_id': post_id
-    //             },
-    //             success: function(response){
-    //                 swal(response.status);
-    //             }
-    //         });
-    //     });
-    // });
-    //     $('.addToBookmark').click(function(e){
-    //         e.preventDefault();
-    //         var post_id = $(this).closset('.post_data').find('.post_id').val();
-
-    //         $.ajax({
-    //             method: "POST",
-    //             url: "/add-to-bookmark",
-    //             data: {
-    //                 'post_id': post_id
-    //             },
-    //             success: function(response){
-    //                 swal(response.status);
-    //             }
-    //         });
-    //     });
+   
 </script>
 @endsection

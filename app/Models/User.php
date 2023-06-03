@@ -48,21 +48,6 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    // public function page(){
-    //     return $this->hasOne(HalamanStore::class);
-    // }
-
-    //versi 1
-    // public function followers()
-    // {
-    //     return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
-    // }
-
-    // public function following()
-    // {
-    //     return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id');
-    // }
-
     //versi 2
     public function following()
     {
@@ -78,5 +63,10 @@ class User extends Authenticatable
     public function bookmarkedProducts()
     {
         return $this->belongsToMany(Post::class, 'bookmarks')->withTimestamps();
+    }
+
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
     }
 }

@@ -33,7 +33,16 @@
     
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
+    <!-- Trix Editor -->
+     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+     <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+ 
+     <style>
+      trix-toolbar [data-trix-button-group="file-tools"]{
+        display:none;
+      }
+      
+     </style>
   </head>
   <body class="fixed-header horizontal-menu horizontal-app-menu dashboard">
     @include('dashboard.layouts.header')
@@ -71,7 +80,7 @@
         <div class=" container   container-fixed-lg footer">
           <div class="copyright sm-text-center">
             <p class="small-text no-margin pull-left sm-pull-reset">
-              ©2023 All Rights Reserved. Pages® and/or its subsidiaries or affiliates are registered trademark of Revox Ltd.
+              ©2023 Vilomina.
             </p>
             <div class="clearfix"></div>
           </div>
@@ -81,131 +90,6 @@
       <!-- END PAGE CONTENT WRAPPER -->
     </div>
     <!-- END PAGE CONTENT -->
-
-    <!-- START OVERLAY -->
-    <div class="overlay hide" data-pages="search">
-      <!-- BEGIN Overlay Content !-->
-      <div class="overlay-content has-results m-t-20">
-        <!-- BEGIN Overlay Header !-->
-        <div class="container-fluid">
-          <!-- BEGIN Overlay Logo !-->
-          <img class="overlay-brand" src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
-          <!-- END Overlay Logo !-->
-          <!-- BEGIN Overlay Close !-->
-          <a href="#" class="close-icon-light btn-link btn-rounded  overlay-close text-black">
-            <i class="pg-icon">close</i>
-          </a>
-          <!-- END Overlay Close !-->
-        </div>
-        <!-- END Overlay Header !-->
-        <div class="container-fluid">
-          <!-- BEGIN Overlay Controls !-->
-          <input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="Search..." autocomplete="off" spellcheck="false">
-          <br>
-
-          <!-- END Overlay Controls !-->
-        </div>
-        <!-- BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !-->
-        <div class="container-fluid p-t-20">
-          <span class="hint-text">
-                suggestions :
-            </span>
-          <span class="overlay-suggestions"></span>
-          <br>
-          <div class="search-results m-t-30">
-            <p class="bold">Pages Search Results: <span class="overlay-suggestions"></span></p>
-            <div class="row">
-              <div class="col-md-6">
-                <!-- BEGIN Search Result Item !-->
-                <div class="d-flex m-t-15">
-                  <!-- BEGIN Search Result Item Thumbnail !-->
-                  <div class="thumbnail-wrapper d48 circular bg-success text-white ">
-                    <img width="36" height="36" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-                  </div>
-                  <!-- END Search Result Item Thumbnail !-->
-                  <div class="p-l-10">
-                    <h5 class="no-margin "><span class="semi-bold result-name">ice cream</span> on pages</h5>
-                    <p class="small-text hint-text">via john smith</p>
-                  </div>
-                </div>
-                <!-- END Search Result Item !-->
-                <!-- BEGIN Search Result Item !-->
-                <div class="d-flex m-t-15">
-                  <!-- BEGIN Search Result Item Thumbnail !-->
-                  <div class="thumbnail-wrapper d48 circular bg-success text-white ">
-                    <div>T</div>
-                  </div>
-                  <!-- END Search Result Item Thumbnail !-->
-                  <div class="p-l-10">
-                    <h5 class="no-margin "><span class="semi-bold result-name">ice cream</span> related topics</h5>
-                    <p class="small-text hint-text">via pages</p>
-                  </div>
-                </div>
-                <!-- END Search Result Item !-->
-                <!-- BEGIN Search Result Item !-->
-                <div class="d-flex m-t-15">
-                  <!-- BEGIN Search Result Item Thumbnail !-->
-                  <div class="thumbnail-wrapper d48 circular bg-success text-white ">
-                    <div>M
-                    </div>
-                  </div>
-                  <!-- END Search Result Item Thumbnail !-->
-                  <div class="p-l-10">
-                    <h5 class="no-margin "><span class="semi-bold result-name">ice cream</span> music</h5>
-                    <p class="small-text hint-text">via pagesmix</p>
-                  </div>
-                </div>
-                <!-- END Search Result Item !-->
-              </div>
-              <div class="col-md-6">
-                <!-- BEGIN Search Result Item !-->
-                <div class="d-flex m-t-15">
-                  <!-- BEGIN Search Result Item Thumbnail !-->
-                  <div class="thumbnail-wrapper d48 circular bg-info text-white d-flex align-items-center">
-                    <i class="pg-icon">facebook</i>
-                  </div>
-                  <!-- END Search Result Item Thumbnail !-->
-                  <div class="p-l-10">
-                    <h5 class="no-margin "><span class="semi-bold result-name">ice cream</span> on facebook</h5>
-                    <p class="small-text hint-text">via facebook</p>
-                  </div>
-                </div>
-                <!-- END Search Result Item !-->
-                <!-- BEGIN Search Result Item !-->
-                <div class="d-flex m-t-15">
-                  <!-- BEGIN Search Result Item Thumbnail !-->
-                  <div class="thumbnail-wrapper d48 circular bg-complete text-white d-flex align-items-center">
-                    <i class="pg-icon">twitter</i>
-                  </div>
-                  <!-- END Search Result Item Thumbnail !-->
-                  <div class="p-l-10">
-                    <h5 class="no-margin ">Tweats on<span class="semi-bold result-name"> ice cream</span></h5>
-                    <p class="small-text hint-text">via twitter</p>
-                  </div>
-                </div>
-                <!-- END Search Result Item !-->
-                <!-- BEGIN Search Result Item !-->
-                <div class="d-flex m-t-15">
-                  <!-- BEGIN Search Result Item Thumbnail !-->
-                  <div class="thumbnail-wrapper d48 circular text-white bg-danger d-flex align-items-center">
-                    <i class="pg-icon">google_plus</i>
-                  </div>
-                  <!-- END Search Result Item Thumbnail !-->
-                  <div class="p-l-10">
-                    <h5 class="no-margin ">Circles on<span class="semi-bold result-name"> ice cream</span></h5>
-                    <p class="small-text hint-text">via google plus</p>
-                  </div>
-                </div>
-                <!-- END Search Result Item !-->
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- END Overlay Search Results !-->
-      </div>
-      <!-- END Overlay Content !-->
-    </div>
-    <!-- END OVERLAY -->
 
     <!-- BEGIN VENDOR JS -->
     <script src="/assets/plugins/pace/pace.min.js" type="text/javascript"></script>

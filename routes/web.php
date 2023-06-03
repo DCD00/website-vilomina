@@ -2,7 +2,7 @@
 
 // use App\Models\Post;
 // use App\Models\User;
-
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\BookmarkController;
 use App\Models\Promo;
 use Illuminate\Support\Facades\Route;
@@ -96,21 +96,6 @@ Route::get('/bandingkan', function(){
     ]);
 });
 
-// Route::get('/promos/{promo:slug}', function(Promo $promo) {
-//     return view('offer', [
-//         'title' => "Post By Promo : $promo->jenis",
-//         'post' => $promo->posts->load('promo', 'author')
-//     ]);
-// });
-
-// Route::get('/authors/{author:id}', function(User $author) {
-//     return view('offer', [
-//         'title' => "Post By Author : $author->name",
-//         'active' => 'offer',
-//         'post' => $author->posts->load('promo', 'author')
-//     ]);
-// });
-
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
@@ -163,8 +148,5 @@ Route::get('/dashboard/follower', [FollowerController::class, 'index'])->name('u
 Route::post('/follow', [FollowerController::class, 'follow'])->name('follower.follow');
 Route::post('/unfollow', [FollowerController::class, 'unfollow'])->name('follower.unfollow');
 
-// // Bookmark
-// Route::get('/dashboards/bookmark', [BookmarkController::class, 'index'])->name('bookmarks.index');
-// Route::get('/bookmark/create', [BookmarkController::class, 'create'])->name('bookmarks.create');
-// Route::post('/bookmark', [BookmarkController::class, 'store'])->name('bookmarks.store');
-// Route::delete('/bookmark/{bookmark}', [BookmarkController::class, 'destroy'])->name('bookmarks.destroy');
+Route::get('/dashboard/notification', [NotificationController::class, 'index'])->name('notifications.index');
+Route::delete('/notification/{notification}', [NotificationController::class, 'destroy'])->name('notification.destroy');

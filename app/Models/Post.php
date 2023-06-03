@@ -38,25 +38,16 @@ class Post extends Model
                 $query->where('id', $author)
             )
         );
-
-        // $query->when($searchs['key_one'] ?? false, fn($query, $key_one) =>
-        //     $query->whereHas('key_one', fn($query) =>
-        //         $query->where('id', $key_one)
-        //     )
-        // );
     }
 
     public function promo() {
         return $this->belongsTo(Promo::class);
     }
 
-    // public function link() {
-    //     return $this->belongsTo(Link::class);
-    // }
-
-    // public function keyword(){
-    //     return $this->belongsTo(Keyword::class);
-    // }
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
 
     public function bookmarks()
     {
@@ -74,7 +65,6 @@ class Post extends Model
             ->where('user_id', $userId)
             ->exists();
     }
-
 
     public function author() {
         return $this->belongsTo(User::class, 'user_id');
