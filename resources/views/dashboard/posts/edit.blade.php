@@ -2,7 +2,7 @@
 
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Edit Post</h1>
+    <h1 class="h2">Penawaran</h1>
 </div>
 
 <div class="col-lg-8">
@@ -198,9 +198,10 @@
             <label for="syarat_ketentuan" class="form-label">Syarat dan Ketentuan</label>
             <textarea type="text" class="form-control" id="syarat_ketentuan" name="syarat_ketentuan" value="{{ old('syarat_ketentuan', $post->syarat_ketentuan) }}" ></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn text-white" style="background-color: #1BB3A7">Done</button>
     </form>
 </div>
+<br>
 
 <script>
     const title = document.querySelector('#title');

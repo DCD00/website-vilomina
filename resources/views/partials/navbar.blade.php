@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #1BB3A7">
     <div class="container">
       <a class="navbar-brand" href="/"><img src="/img/VilominaLogoBase2.png" alt="Vilomina" width="100" height="25"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

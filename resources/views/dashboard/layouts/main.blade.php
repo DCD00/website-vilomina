@@ -31,17 +31,17 @@
     <link href="/assets/css/dashboard.widgets.css" rel="stylesheet" type="text/css" media="screen" />
     <link class="main-stylesheet" href="/pages/css/themes/modern.css" rel="stylesheet" type="text/css" />
     
-    
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- Trix Editor -->
      <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
      <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
- 
+<!--  
      <style>
       trix-toolbar [data-trix-button-group="file-tools"]{
         display:none;
       }
-      
+       -->
      </style>
   </head>
   <body class="fixed-header horizontal-menu horizontal-app-menu dashboard">
@@ -79,9 +79,9 @@
         <!-- START CONTAINER FLUID -->
         <div class=" container   container-fixed-lg footer">
           <div class="copyright sm-text-center">
-            <p class="small-text no-margin pull-left sm-pull-reset">
+            <!-- <p class="small-text no-margin pull-left sm-pull-reset">
               ©2023 Vilomina.
-            </p>
+            </p> -->
             <div class="clearfix"></div>
           </div>
         </div>

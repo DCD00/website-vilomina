@@ -8,8 +8,8 @@
 @endif
 
     @if($bookmarkedProducts->count() > 0)
-    <div class="table-responsive col-lg-10">
-        <h2>My Bookmark</h2>
+    <div class="table-responsive pt-3 pb-2 mb-3 col-lg-10">
+        <h2>Bookmark</h2>
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
@@ -34,18 +34,18 @@
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                <button type="submit" class="btn btn-sm btn-danger btn-sm">Unbookmark</button>
+                                <button type="submit" class="btn btn-danger btn-sm">Unbookmark</button>
                             </form>
                         @else
                             <form action="{{ route('products.bookmark', $post) }}" method="GET">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                 <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                <button type="submit" class="btn btn-sm btn-primary btn-sm">Bookmark</button>
+                                <button type="submit" class="btn btn-primary btn-sm">Bookmark</button>
                             </form>
                         @endif
                     </td>
-                    <td><a href="/dashboard/posts/{{ $post->slug }}" class="btn btn-sm btn-info btn-l">Detail</a></td>
+                    <td><a href="/dashboard/posts/{{ $post->slug }}" class="btn btn-sm btn-l text-white" style="background-color: #1BB3A7">Detail</a></td>
                 </tr>
                 @endforeach
             </tbody>

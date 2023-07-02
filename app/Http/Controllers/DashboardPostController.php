@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use App\Models\Keyword;
 use App\Models\Link;
 use App\Models\Post;
@@ -197,6 +197,7 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
+        Notification::where('post_id', $post->id)->delete();
         Post::destroy($post->id);
 
         return redirect('/dashboard/posts')->with('success', 'New Post Has Been Delete!');

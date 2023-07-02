@@ -1,6 +1,10 @@
 @extends('layouts.main')
 
 @section('container')
+@php
+use Carbon\Carbon;
+@endphp
+
 @if(session()->has('success'))
   <div class="alert alert-success col-lg-8" role="alert">
     {{ session('success') }}
@@ -27,15 +31,34 @@
             {{-- versi responsive --}}
             <div class="col-md-6">
                 <div class="row">
-                    <h5>{{ $post->title }}</h5>
-                    <p class="text-danger h5">Rp. {{ $post->promo_price }}  <span class="text-decoration-line-through text-muted h6"> Rp. {{ $post->original_price }}</span></p>
-                    <p><span class="badge rounded-pill text-bg-info"><a href="/offer?promo={{ $post->promo->slug }}" class="text-decoration-none text-dark">{{ $post->promo->jenis }}</a> {{ $post->satuan_promo }} {{ $post->nilai_promo }}</span></p>
-                    <p class="text-secondary" style="font-size:11px">{{ $post->new_at }} - {{ $post->expired_at }}</p>
-                </div>
+                    <div class="col">
+                        <h5>{{ $post->title }}</h5>
+                        @if ($post->promo_price != 0)
+                            <p class="text-danger h5">Rp. {{ $post->promo_price }}  <span class="text-decoration-line-through text-muted h6"> Rp. {{ $post->original_price }}</span></p>
+                        @endif
+                        @if ($post->nilai_promo != 0)
+                            <p class="card-text text-danger h6">
+                                <span class="badge rounded-pill text-bg-info">
+                                    <a href="/offer?promo={{ $post->promo->slug }}" class="text-decoration-none text-dark">{{ $post->promo->jenis }}</a> 
+                                    @if ($post->satuan_promo == 'Rp.')
+                                        Rp.
+                                    @endif
+                                    {{ $post->nilai_promo }}
+                                    @if ($post->satuan_promo == '%')
+                                        %
+                                    @endif
+                                </span>
+                            </p>
+                        @endif
+                        <p class="text-secondary" style="font-size:11px">
+                            {{ \Carbon\Carbon::parse($post->new_at)->format('d/m/Y') }} - {{ \Carbon\Carbon::parse($post->expired_at)->format('d/m/Y') }}
+                        </p>
+                    </div>
+                </div>                
             
-                <div class="row border border-dark-subtle">
+                <div class="row border border-dark-subtle ms-0" style="width: fit-content;">
                     <div class="col-lg-auto pt-2 pb-2">
-                        <img src="/img/toko.png" alt="" width="40">
+                        <img src="{{ asset('storage/' . $post->author->image) }}" alt="{{ $post->title }}" width="40">
                         <a href="/offer?author={{ $post->author->id }}" class="text-decoration-none text-dark">{{ $post->author->name }}</a>
                         <span class="text-secondary" style="font-size:11px">{{ $post->author->followers->count() }} Follower </span>
                     </div>
@@ -63,10 +86,10 @@
                 </div>
             
                 <div class="row mt-2">
-                    <div class="col">
+                    <div class="col-auto">
                         <a href="/bandingkan" class="btn btn-outline-success btn-sm">Bandingkan</a>
                     </div>
-                    <div class="col">
+                    <div class="col-auto">
                         @if(Auth::check())
                             @if($post->bookmarkedByUser(Auth::id()))
                                 <button type="button" class="btn btn-primary btn-sm" disabled>Bookmark</button>
@@ -84,15 +107,17 @@
                     </div>
                 </div>
             
-                <h5>Deskripsi</h5>
+                <div class="row mt-3">
+                    <h5>Deskripsi</h5>
                 {!! $post->description !!}
+                </div>
                 
                 <div class="row mt-3">
                         <h5>Link Terkait dengan Penawaran</h5>
                         <h6>
-                            <p><a href="{{ $post->url_link1 }}" class="text-decoration-none text-dark">{{ $post->nm_link1 }}</a></p>
-                            <p><a href="{{ $post->url_link2 }}" class="text-decoration-none text-dark">{{ $post->nm_link2 }}</a></p>
-                            <p><a href="{{ $post->url_link3 }}" class="text-decoration-none text-dark">{{ $post->nm_link3 }}</a></p>
+                            <p><a href="{{ $post->url_link1 }}" class="text-decoration-none" style="color: #1BB3A7">{{ $post->nm_link1 }}</a></p>
+                            <p><a href="{{ $post->url_link2 }}" class="text-decoration-none" style="color: #1BB3A7">{{ $post->nm_link2 }}</a></p>
+                            <p><a href="{{ $post->url_link3 }}" class="text-decoration-none" style="color: #1BB3A7">{{ $post->nm_link3 }}</a></p>
                         </h6>
                     </div>
                     <div class="row">
@@ -106,14 +131,10 @@
                 </div>
         </div>
     </div>
-
-
 @endsection
 
 @section('scripts')
 <script>
-
-
     function unbookmarkProduct(id) {
         if (confirm('Are you sure you want to unbookmark this product?')) {
             var form = document.getElementById('unbookmark-form-' + id);
@@ -123,9 +144,6 @@
 
     function addToBookmark(){
         const post_id = document.querySelector('.post_id');
-    //   const imgPreview = document.querySelector('.img-preview');
-        // var post_id = $(this).closset('.post_data').find('.post_id').val();
-        //var post_id = $(this).closset('.post_data').find('.post_id').val();
         $.ajax({
             method: "POST",
             url: "/add-to-bookmark",

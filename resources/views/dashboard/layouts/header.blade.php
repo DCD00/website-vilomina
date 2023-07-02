@@ -1,5 +1,5 @@
 <!-- START PAGE-CONTAINER -->
-<div class="header p-r-0 bg-success">
+<div class="header p-r-0" style="background-color: #1BB3A7">
     <div class="header-inner header-md-height">
       <a href="#" class="btn-link toggle-sidebar d-lg-none text-white sm-p-l-0 btn-icon-link" data-toggle="horizontal-menu">
         <i class="pg-icon">menu</i>
@@ -52,13 +52,12 @@
                 <a href="{{ route('users.index') }}" class="text-decoration-none">Following</a>
             </li>
             <li>
-                <a href="{{ route('notifications.index') }}" class="text-decoration-none">Notification</a>
+                <a href="{{ route('notifications.index') }}" class="text-decoration-none">Notifikasi</a>
                 @if (auth()->check())
                     <span class="badge">{{ auth()->user()->notifications->count() }}</span>
                 @endif
             </li>
           </ul>
-          <!-- <a href="#" class="search-link d-flex justify-content-between align-items-center d-lg-none" data-toggle="search">Tap here to search <i class="pg-search float-right"></i></a> -->
         </div>
       </div>
     </div>

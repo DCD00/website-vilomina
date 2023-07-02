@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\HalamanStore;
+use Illuminate\Support\Facades\Storage;
 use App\Models\User;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -16,27 +18,50 @@ class DashboardProfilController extends Controller
     }
 
     public function update(Request $request){
-        // $validatedData = $request->validate([
-        //     'name' => 'required|max:255',
-        //     'tanggal_lahir' => 'required',
-        //     'email' => 'required'
-        // ]);
+        $user = Auth::user();
 
-        //dd(User::find($request->user()->id));
-        if(!User::find($request->user()->id)
-        ->update(['name' => $request->name,
-        'email' => $request->email,
-        'tanggal_lahir' => $request->tanggal_lahir
-        ])){
-            
-            return back()->with('alert', 'gagal');
+        // Validasi input
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'tanggal_lahir' => 'required',
+            'email' => 'required|email',
+            'foto_profil' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Atur validasi sesuai kebutuhan Anda
+        ]);
+    
+        // Perbarui data profil pengguna
+        $user->name = $validatedData['name'];
+        $user->tanggal_lahir = $validatedData['tanggal_lahir'];
+        $user->email = $validatedData['email'];
+    
+        // Proses foto profil jika diunggah
+        if ($request->hasFile('foto_profil')) {
+            // Hapus foto profil lama jika ada
+            Storage::delete($user->image);
+    
+            // Simpan foto profil baru
+            $path = $request->file('foto_profil')->store('foto_profil');
+            $user->image = $path;
         }
+    
+        $user->save();
+    
+        return redirect()->back()->with('success', 'Profil berhasil diperbarui');
 
-        return back()->with('success', 'Updated Successfully!');
+        // if(!User::find($request->user()->id)
+        // ->update(['name' => $request->name,
+        // 'image' => $request->file('image')->store('post-images'),
+        // 'email' => $request->email,
+        // 'tanggal_lahir' => $request->tanggal_lahir
+        // ])){
+            
+        //     return back()->with('alert', 'gagal');
+        // }
+        // return back()->with('success', 'Updated Successfully!');
     }
 
     public function destroy(Request $request)
     {
+        Notification::where('user_id', $request)->delete();
         User::destroy($request->user()->id);
         return redirect('/')->with('success', 'Account Has Been Delete!');
     }

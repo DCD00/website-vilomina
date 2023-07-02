@@ -2,7 +2,7 @@
 
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Create New Post</h1>
+    <h1 class="h2">Penawaran</h1>
 </div>
 
 <div class="col-lg-8">
@@ -42,7 +42,7 @@
         </div>
         <div class="mb-3">
             <label for="promo_price" class="form-label">Harga Promo</label>
-            <input type="text" class="form-control" id="promo_price" name="promo_price">
+            <input type="text" class="form-control" id="promo_price" name="promo_price" required>
         </div>
         <div class="mb-3">
             <label for="promo_id" class="form-label">Jenis Promo</label>
@@ -74,38 +74,17 @@
             <input type="text" class="form-control" id="nilai_promo" name="nilai_promo">
         </div>
         <div class="mb-3">
-            <label for="new_at">Tanggal Baru</label>
+            <label for="new_at">Tanggal Mulai Berlaku</label>
             <input type="date" name="new_at" class="form-control" id="new_at" placeholder="Tanggal_Baru" value="{{ old('tanggal_baru') }}">
         </div>
         <div class="mb-3">
-            <label for="expired_at">Tanggal Kadaluarsa</label>
+            <label for="expired_at">Tanggal Terkahir Berlaku</label>
             <input type="date" name="expired_at" class="form-control" id="expired_at" placeholder="Tanggal_Kadaluarsa" value="{{ old('tanggal_kadaluarsa') }}">
         </div>
-        {{-- <div class="mb-3">
-            <label for="keyword" class="form-label">Keyword</label>
-            <input type="text" class="form-control" id="keyword" name="keyword">
-        </div>
-        <div class="mb-3">
-            <label for="link" class="form-label">Link Terkait Penawaran ini</label>
-            <input type="text" class="form-control" id="link" name="link">
-        </div> --}}
+       
         <div class="mb-3">
             <label for="link_id" class="form-label">Link Terkait Penawaran</label>
-            {{-- <select class="form-select  @error('link_id') is-invalid @enderror" name="link_id">
-                @foreach ($links as $link)
-                    @if(old('link_id') == $link->id)
-                    <option value="{{ $link->id }}" selected>{{ $link->name_link }}</option>
-                    @else
-                    <option value="{{ $link->id }}">{{ $link->name_link }}</option>
-                    @endif
-                @endforeach  
-                
-            </select> --}}
-            {{-- @error('link_id')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-          @enderror --}}
+            
           <div class="form-floating">
             <input type="text" name="nm_link1" class="form-control rounded-top @error('nm_link1') is-invalid @enderror" id="nm_link1" placeholder="nm_link1" value="{{ old('nm_link1') }}">
             <label for="nm_link1">Nama Link 1</label>
@@ -163,20 +142,7 @@
         </div>
         <div class="mb-3">
             <label for="keyword_id" class="form-label">Keyword Terkait Penawaran</label>
-            {{-- <select class="form-select  @error('keyword_id') is-invalid @enderror" name="keyword_id">
-                @foreach ($keywords as $key)
-                    @if(old('keyword_id') == $key->id)
-                    <option value="{{ $key->id }}" selected>{{ $key->name_key }}</option>
-                    @else
-                    <option value="{{ $key->id }}">{{ $key->name_key }}</option>
-                    @endif
-                @endforeach  
-            </select>
-            @error('keyword_id')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-          @enderror --}}
+            
           <div class="form-floating">
             <input type="text" name="key_one" class="form-control rounded-top @error('key_one') is-invalid @enderror" id="key_one" placeholder="key_one" value="{{ old('key_one') }}" required>
             <label for="key_one">Keyword 1</label>
@@ -231,9 +197,10 @@
             <label for="syarat_ketentuan" class="form-label">Syarat dan Ketentuan</label>
             <input type="text" class="form-control" id="syarat_ketentuan" name="syarat_ketentuan">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn text-white" style="background-color: #1BB3A7">Done</button>
     </form>
 </div>
+<br>
 
 <script>
     const title = document.querySelector('#title');
@@ -263,5 +230,4 @@
       }
     }
 </script>
-
 @endsection

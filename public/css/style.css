@@ -39,3 +39,27 @@
     padding: 0 20px;
   }
 }
+
+/* Perubahan ukuran ikon dan huruf pada tampilan mobile */
+@media (max-width: 576px) {
+  footer img {
+    width: 24px;
+    height: 24px;
+  }
+
+  footer h3 {
+    font-size: 18px;
+  }
+
+  footer p {
+    font-size: 14px;
+  }
+
+  footer .text-center p {
+    font-size: 12px;
+  }
+}
+.container #img-profil {
+  width: 24px;
+  height: 24px;
+}

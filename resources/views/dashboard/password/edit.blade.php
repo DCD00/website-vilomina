@@ -20,7 +20,6 @@
           @method("PATCH")
           <div class="mb-3">
             <label for="old_password" class="form-label">Password Lama</label>
-            {{-- <input type="password" class="form-control @error('old_password') is-invalid @enderror" id="old_password" name="old_password" required autofocus value="{{ old('old_password', Auth::user()->password) }}"> --}}
             <input type="password" class="form-control @error('old_password') is-invalid @enderror" id="old_password" name="old_password" required autofocus>
             @error('old_password')
             <div class="invalid-feedback">
@@ -46,9 +45,8 @@
                 </div>
                 @enderror
             </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn text-white" style="background-color: #1BB3A7">Submit</button>
       </form>
 </div>
-
-
+<br>
 @endsection

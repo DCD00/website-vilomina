@@ -38,18 +38,10 @@
           <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
           <label for="password">Password</label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+        <button class="w-100 btn btn-lg text-white" style="background-color: #1BB3A7" type="submit">Login</button>
       </form>
       <small class="d-block text-center mt-3">Not registered? <a href="/register" class="text-decoration-none">Register Now!</a></small>
     </main>
-
   </div>
 </div>
 @endsection
-
-
-        {{-- <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div> --}}
