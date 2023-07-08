@@ -35,7 +35,7 @@ class CreatePostsTable extends Migration
             $table->string('nm_link1')->nullable();
             $table->string('url_link1')->nullable();
             $table->string('nm_link2')->nullable();
-            $table->string('url_Link2')->nullable();
+            $table->string('url_link2')->nullable();
             $table->string('nm_link3')->nullable();
             $table->string('url_link3')->nullable();
             $table->string('key_one')->nullable();
