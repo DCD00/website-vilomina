@@ -45,7 +45,11 @@ use Carbon\Carbon;
                     <div class="col">
                         <h5>{{ $post->title }}</h5>
                         @if ($post->promo_price != 0)
-                            <p class="text-danger h5">Rp. {{ $post->promo_price }}  <span class="text-decoration-line-through text-muted h6"> Rp. {{ $post->original_price }}</span></p>
+                            <p class="text-danger h5">Rp. {{ $post->promo_price }}  
+                                @if ($post->original_price != 0)
+                                <span class="text-decoration-line-through text-muted h6"> Rp. {{ $post->original_price }}</span>
+                                @endif
+                            </p>
                         @endif
                         @if ($post->nilai_promo != 0)
                             <p class="card-text text-danger h6">
