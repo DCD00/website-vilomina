@@ -36,13 +36,8 @@
     <!-- Trix Editor -->
      <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
      <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
-<!--  
-     <style>
-      trix-toolbar [data-trix-button-group="file-tools"]{
-        display:none;
-      }
-       -->
-     </style>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1025343118267935"
+     crossorigin="anonymous"></script>
   </head>
   <body class="fixed-header horizontal-menu horizontal-app-menu dashboard">
     @include('dashboard.layouts.header')

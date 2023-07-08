@@ -39,6 +39,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="ypizvv-O13uxODO7bn6o6bVPUJryi-GfilHNHVNDn6E"/>
     <meta name="msvalidate.01" content="8811EF3277673C96F571654D263258C7" />
+    
     <title>Vilomina | {{ $title }}</title>
     {{-- Bootstrap CSS --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -47,6 +48,8 @@
   
     <link rel="stylesheet" href="/css/style.css">
 
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1025343118267935"
+     crossorigin="anonymous"></script>
   </head>
   <body>
 
